@@ -1,4 +1,4 @@
-program act1;
+program ejercicio1;
 type
   archivo = file of integer;
 var 

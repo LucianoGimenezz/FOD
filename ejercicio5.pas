@@ -41,7 +41,7 @@ begin
               WriteLn('Comenzando Carga...');  
               ReadLn(celus, celu.cod_celular,celu.precio, celu.marca);
               ReadLn(celus, celu.stock_disponible, celu.stock_minimo, celu.descripcion);
-              Read(celus, celu.nombre);
+              ReadLn(celus, celu.nombre);
               Write(archivoLogico, celu);
             end;
             Close(celus);
@@ -53,7 +53,7 @@ begin
             while(not Eof(archivoLogico))do
             begin
               read(archivoLogico, celu);
-              if(celu.stock_disponible < celu.stock_minimo) then WriteLn(celu.cod_celular, celu.nombre, celu.marca, celu.descripcion, celu.precio);
+              if(celu.stock_disponible < celu.stock_minimo) then WriteLn(celu.cod_celular, celu.nombre, celu.marca, celu.descripcion, celu.precio:2:2);
             end;
             Close(archivoLogico);
          end;    
@@ -78,5 +78,13 @@ begin
     else
        WriteLn('Opcion incorrecta');
     end;
+      WriteLn('---Menu---');
+      WriteLn('0. Terminar');
+      WriteLn('1. Crear archivo');
+      WriteLn('2. Listar por stock');
+      WriteLn('3. Listar por descripcion');
+      WriteLn('4.Exportar archivo');
+      WriteLn('Elija una opcion');
+      ReadLn(op);
   end;  
 end.
